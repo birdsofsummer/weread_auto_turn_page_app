@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">read</string>
+    <string name="show_sleep_time">5</string>
+    <string name="test_read">翻书</string>
+</resources>
