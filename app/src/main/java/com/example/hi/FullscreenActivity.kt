@@ -21,6 +21,7 @@ import io.reactivex.subjects.PublishSubject
 //import org.jetbrains.anko.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
+import android.os.AsyncTask
 
 import java.io.File
 import java.net.URLEncoder
@@ -230,6 +231,26 @@ class FullscreenActivity : AppCompatActivity() {
         }
     }
 
+    fun start_sleep_mode(){
+        reading=true
+        val s1=5.toLong()*1000
+        val s2=50.toLong()*1000
+        val l=300
+        echo("请在5秒钟内打开书架上要看的书 ...")
+        doAsync {
+            start_weread()
+            Thread.sleep(s1)
+            for (i in 1..l){
+                tap_r()
+                Thread.sleep(s1)
+            }
+            while (true) {
+                tap_r()
+                Thread.sleep(s2)
+            }
+        }
+    }
+
     fun start_auto_read0(){
         echo("请在5秒钟内打开书架上要看的书 ...")
         reading=true
@@ -305,6 +326,9 @@ class FullscreenActivity : AppCompatActivity() {
 //            false
 //        })
         show_sleep_time.setOnClickListener { toggle() }
+        sleep_button.setOnClickListener {
+            start_sleep_mode()
+        }
        test_read.setOnClickListener {
            tap_osition=get_tap_cmd()
            start_auto_read()
