@@ -113,6 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/test_read"
                         android:layout_width="match_parent"
@@ -124,12 +125,53 @@
                         android:textSize="50sp"
                         android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/sleep_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="sleep" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/wake_pages"
+                            android:layout_width="52dp"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="页数1"
+                            android:inputType="number"
+                            android:text="300" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="页后" />
+
+                        <EditText
+                            android:id="@+id/sleep_speed1"
+                            android:layout_width="42dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:hint="秒/页"
+                            android:inputType="number"
+                            android:text="55" />
+
+                        <Button
+                            android:id="@+id/sleep_button"
+                            android:layout_width="2dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="sleep" />
+
+                        <TextView
+                            android:id="@+id/loop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="loop?" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>

@@ -233,9 +233,9 @@ class FullscreenActivity : AppCompatActivity() {
 
     fun start_sleep_mode(){
         reading=true
-        val s1=5.toLong()*1000
-        val s2=50.toLong()*1000
-        val l=300
+        val s1 = speed.toLong()*1000
+        val s2=sleep_speed1.text.toString().toLong()*1000
+        val l:Long = wake_pages.text.toString().toLong()
         echo("请在5秒钟内打开书架上要看的书 ...")
         doAsync {
             start_weread()
@@ -250,7 +250,25 @@ class FullscreenActivity : AppCompatActivity() {
             }
         }
     }
-
+    fun start_tomato(){
+        reading=true
+        val s1 = speed.toLong()*1000
+        val s2=sleep_speed1.text.toString().toLong()*1000
+        val l:Long = wake_pages.text.toString().toLong()
+        echo("请在5秒钟内打开书架上要看的书 ...")
+        doAsync {
+            start_weread()
+            Thread.sleep(s1)
+            while (true) {
+                for (i in 1..l){
+                    tap_r()
+                    Thread.sleep(s1)
+                }
+                tap_r()
+                Thread.sleep(s2)
+            }
+        }
+    }
     fun start_auto_read0(){
         echo("请在5秒钟内打开书架上要看的书 ...")
         reading=true
@@ -328,6 +346,9 @@ class FullscreenActivity : AppCompatActivity() {
         show_sleep_time.setOnClickListener { toggle() }
         sleep_button.setOnClickListener {
             start_sleep_mode()
+        }
+        loop.setOnClickListener {
+            start_tomato()
         }
        test_read.setOnClickListener {
            tap_osition=get_tap_cmd()
